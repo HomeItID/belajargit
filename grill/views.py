@@ -26,9 +26,7 @@ print("hellooooo ini im eldaaa")
 print("hellooooo ini im eldaaa")
 print("hellooooo ini im eldaaa")
 print("hellooooo ini im eldaaa")
-print("hellooooo ini im eldaaa")
-print("hellooooo ini im eldaaa")
-print("hellooooo ini im eldaaa")
+
 
 # Create your views here.
 
