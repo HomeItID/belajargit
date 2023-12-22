@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @page{
+            size: 'A4';
+            margin: 2.5cm 1.5cm 3.5cm 1.5cm;
+        }
+        table, td, th {
+            border: 1px solid;
+            text-align: center;
+            }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Laporan Penjualan</h1>
+    <h3 style="text-align: center;">{{mulai}} - {{akhir}}</h3>
+    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Pemesanan</th>
+                <th>Tanggal Pemesanan</th>
+                <th>Nama Pelanggan</th>
+                <th>Nama Paket</th>
+                <th>Harga Paket</th>
+                <th>Jumlah Paket</th>
+                <th>Jenis Pengiriman</th>
+                <th>Nama Karyawan</th>
+                <th>Tarif Pengiriman</th>
+                <th>Total Harga</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in laporanobj %}
+            <tr>
+                <td>{{ item.0.id_pemesanan }}</td>
+                <td>{{ item.0.tanggal_pemesanan }}</td>
+                <td>{{ item.0.id_pelanggan }}</td>
+                <td>
+                {% for detail in item.1 %}
+                    <h6>{{ detail.id_pemesanan.id_paket }}</h6>
+                {% endfor %}
+                </td>
+                <td>
+                {% for detail in item.1 %}
+                    <h6>{{ detail.id_pemesanan.id_paket.harga_paket }}</h6>
+                {% endfor %}
+                </td>
+                <td>
+                {% for detail in item.1 %}
+                    <h6>{{ detail.id_pemesanan.jumlah_paket }}</h6>
+                {% endfor %}
+                </td>
+                <td>
+                {% for detail in item.1 %}
+                    <h6>{{ detail.id_pengiriman.id_jenis_pengiriman }}</h6>
+                {% endfor %}
+                </td>
+                <td>
+                {% for detail in item.1 %}
+                    <h6>{{ detail.id_pengiriman.id_karyawan }}</h6>
+                {% endfor %}
+                </td>
+                <td>
+                {% for detail in item.1 %}
+                    <h6>{{ detail.id_pengiriman.id_jenis_pengiriman.tarif_pengiriman }}</h6>
+                {% endfor %}
+                </td>
+                <td>
+                    <h6 class="currency">Rp{{ item.3 }}</h6>
+                </td>
+            </tr> 
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Grand Total</th>
+                <td> Rp{{ totalkeseluruhan }}</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

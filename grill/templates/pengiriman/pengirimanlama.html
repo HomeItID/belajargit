@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h1>Data pengiriman</h1>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID pengiriman</th>
+                <th>Nama karyawan</th>
+                <th>Jenis pengiriman</th>
+                <th>Tanggal pengiriman</th>        
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in pengirimanobj %}
+            <tr>
+                <td>{{ item.id_pengiriman  }}</td>
+                <td>{{ item.id_karyawan  }}</td>
+                <td>{{ item.id_jenis_pengiriman }}</td>
+                <td>{{ item.tanggal_pengiriman }}</td>
+                <td>
+                    <a href="{% url 'upengiriman' item.id_pengiriman%}"><button class="btn btn-warning">Update</button></a>
+                    <a href="{% url 'dpengiriman' item.id_pengiriman%}"><button class="btn btn-danger">Delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+<a href="{% url 'login' %}"><button class="btn btn-warning">Home</button></a>
+</html>

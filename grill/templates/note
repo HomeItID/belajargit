@@ -1,0 +1,73 @@
+"{% static''%}"
+
+<tr>
+    <th>ID Jual</th>
+    <th>Tanggal Transaksi</th>
+    <th>Nama Pasar</th>
+    <th>Nama Komoditas</th>
+    <th>Harga Komoditas</th>
+    <th>Jumlah Komoditas</th>
+    <th>Nama Produk</th>
+    <th>Harga Produk</th>
+    <th>Jumlah Produk</th>
+    <th>Subtotal</th>
+    <th>Total</th>
+</tr>
+</thead>
+<tbody>
+{% for item in detailobjek %}
+<tr>
+    <td>{{ item.0.id_penjualan }}</td>
+    <td>{{ item.0.tanggal_penjualan }}</td>
+    <td>{{ item.0.id_pasar }}</td>
+    <td>
+        {% for detail in item.1 %}
+            <h6>{{detail.id_komoditas}}</h6>
+        {% endfor %}
+    </td>
+    <td class="currency">
+        {% for detail in item.1 %}
+            <h6 class="currency">Rp{{detail.id_komoditas.harga_jual}}</h6>
+        {% endfor %}
+    </td>
+    <td class="currency">
+        {% for detail in item.1 %}
+            <h6 class="currency">{{detail.kuantitas_komoditas}}</h6>
+        {% endfor %}
+    </td>
+    <td>
+        {% for detail in item.1 %}
+            <h6>{{detail.id_produk}}</h6>
+        {% endfor %}
+    </td>
+    <td>
+        {% for detail in item.1 %}
+            <h6>{{detail.id_produk.hargaproduk}}</h6>
+        {% endfor %}
+    </td>
+    <td>
+        {% for detail in item.1 %}
+            <h6>{{detail.kuantitas_produk}}</h6>
+        {% endfor %}
+    </td>
+    <td class="currency">
+        {% for detail in item.2 %}
+            <h6 class="currency">Rp{{detail}}</h6>
+        {% endfor %}
+    </td>
+    <td class="currency">Rp{{item.3}}</td>
+    
+</tr>
+{% endfor %}
+</tbody>
+<tr>
+<th colspan="10"  style="text-align:center;">
+    Grand Total
+</th>
+<td class="currency"><b>Rp{{pemasukan}}</b></td>
+</tr>
+</table>
+<a href="{% url 'laporanpenjualanpdf' mulai=tanggalmulai akhir=tanggalakhir %}">
+<button class="btn btn-info">
+Cetak Laporan
+</button>

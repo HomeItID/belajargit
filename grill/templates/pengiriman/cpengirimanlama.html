@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create Data pengiriman</h1>
+    <form action=""method="post">
+        <table>
+            <tbody>
+                {% csrf_token %}
+                <tr>
+                    <td>Nama Karyawan</td>
+                    <td>
+                        <select name="id_karyawan"id="">
+                        {% for item in datakaryawan %} 
+                        <option value="{{item.id_karyawan}}">{{item.nama_karyawan_kurir}}</option>
+                        {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jenis Pengiriman</td>
+                    <td>
+                        <select name="id_jenis_pengiriman"id="">
+                            {% for item in datajenis_pengiriman %} 
+                            <option value="{{item.id_jenis_pengiriman}}">{{item.nama_jenis_pengiriman}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tanggal pengiriman</td>
+                    <td>
+                        <input type="date" name="tanggal_pengiriman" id="">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit">SUBMIT</button>
+        </form>
+</body>
+</html>

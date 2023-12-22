@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h1>Data Detail Pemesanan</h1>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Detail Pemesanan</th>
+                <th>ID Pemesanan</th>
+                <th>ID Pengiriman</th>      
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in detail_pemesananobj %}
+            <tr>
+                <td>{{ item.id_detail_pemesanan  }}</td>
+                <td>{{ item.id_pemesanan  }}</td>
+                <td>{{ item.id_pengiriman }}</td>
+                <td>
+                    <a href="{% url 'ddetail_pemesanan' item.id_detail_pemesanan%}"><button class="btn btn-danger">Delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+<a href="{% url 'login' %}"><button class="btn btn-warning">Home</button></a>
+</html>

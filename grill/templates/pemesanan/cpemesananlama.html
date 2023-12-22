@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create Data Pemesanan</h1>
+    <form action=""method="post">
+        <table>
+            <tbody>
+            {% csrf_token %}
+                <tr>
+                    <th>Pelanggan</th>
+                    <td>
+                        <select name="id_pelanggan" id="">
+                        {% for item in datapelanggan %} 
+                        <option value="{{item.id_pelanggan}}">{{item.nama_pelanggan}}</option>
+                        {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Paket</th>
+                    <td>
+                        <select name="id_paket" id="">
+                        {% for item in datapaket %} 
+                        <option value="{{item.id_paket}}">{{item.jenis_paket}}</option>
+                        {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Jumlah Paket</th>
+                    <td>
+                        <input type="number" name="jumlah_paket">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Tanggal Pemesanan</th>
+                    <td>
+                        <input type="date" name="tanggal_pemesanan">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit">SUBMIT</button>
+        </form>
+</body>
+</html>

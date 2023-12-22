@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h1>Data Karyawan</h1>
+<body>
+    <table>
+    <thead>
+        <tr>
+            <th>ID Karyawan</th>
+            <th>Nama Karyawan</th>
+            <th>No HP Karyawan</th>    
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in karyawanobj %}
+        <tr>
+            <td>{{ item.id_karyawan }}</td>
+            <td>{{ item.nama_karyawan_kurir }}</td>
+            <td>{{ item.no_hp_karyawan_kurir }}</td>
+            <td>
+                <a href="{% url 'ukaryawan' item.id_karyawan %}"><button class="btn btn-warning">Update</button></a>
+                <a href="{% url 'dkaryawan' item.id_karyawan  %}"><button class="btn btn-danger">Delete</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>    
+</body>
+<a href="{% url 'ckaryawan' %}"><button class="btn btn-primary ">Create</button></a>
+<a href="{% url 'login' %}"><button class="btn btn-warning">Home</button></a>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h1>Data Pemesanan</h1>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Pemesanan</th>
+                <th>Nama Pelanggan</th>
+                <th>Jenis Paket</th>
+                <th>Jumlah Paket</th>
+                <th>Tanggal Pemesanan</th>
+                <th>Status Pemesanan</th>        
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in pemesananobj %}
+            <tr>
+                <td>{{ item.id_pemesanan  }}</td>
+                <td>{{ item.id_pelanggan  }}</td>
+                <td>{{ item.id_paket }}</td>
+                <td>{{ item.jumlah_paket }}</td>
+                <td>{{ item.tanggal_pemesanan }}</td>
+                <td>{{ item.status }}</td>
+                <td>
+                    <a href="{% url 'upemesanan' item.id_pemesanan%}"><button class="btn btn-warning">Update</button></a>
+                    <a href="{% url 'dpemesanan' item.id_pemesanan%}"><button class="btn btn-danger">Delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+<a href="{% url 'login' %}"><button class="btn btn-warning">Home</button></a>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Update Data Pemesanan</h1>
+    <form action=""method="post">
+        {% csrf_token %}
+        <table>
+            <tbody>
+                <tr>
+                    <th>Pelanggan</th>
+                    <td>
+                        <select name="id_pelanggan"id="">
+                        {% for item in datapelanggan %}
+                            {% if item in datapelanggan == pemesananobj.id_pelanggan.nama_pelanggan %} 
+                                <option selected value="{{item.id_pelanggan}}">{{item.nama_pelanggan}}</option>
+                            {% else %}
+                                <option value="{{item.id_pelanggan}}">{{item.nama_pelanggan}}</option>
+                            {% endif %}
+                        {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Paket</th>
+                    <td>
+                        <select name="id_paket"id="">
+                        {% for item in datapaket %}
+                            {% if item in datapaket == pemesananobj.id_paket.jenis_paket %} 
+                                <option selected value="{{item.id_paket}}">{{item.jenis_paket}}</option>
+                            {% else %}
+                                <option value="{{item.id_paket}}">{{item.jenis_paket}}</option>
+                            {% endif %}
+                        {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Jumlah Paket</th>
+                    <td>
+                        <input type="number" name="jumlah_paket" value="{{pemesananobj.jumlah_paket}}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Tanggal Pemesanan</th>
+                    <td>
+                        <input type="date" name="tanggal_pemesanan" value="{{pemesananobj.tanggal_pemesanan}}">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit">SUBMIT</button>
+        </form>
+</body>
+</html>
+<!----
+                {% for item in datagrade %}
+                    {% if item.nama_grade == komoditasobj.id_grade.nama_grade %}
+                        <option selected value="{{item.id_grade}}">{{item.nama_grade}}</option>
+                    {% else %}
+                        <option value="{{item.id_grade}}">{{item.nama_grade}}</option>
+                    {% endif %}
+                {% endfor %} 
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Harga Beli</label>
+            <input required type="number" class="form-control" id="exampleFormControlSelect1" name="harga_beli"
+                value="{{ komoditasobj.harga_beli }}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Harga Jual</label>
+            <input required type="number" class="form-control" id="exampleFormControlSelect1" name="harga_jual"
+                value="{{ komoditasobj.harga_jual }}">
+        </div>
+        <button type="submit" class="btn btn-secondary">Update</button>
+        >

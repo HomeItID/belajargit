@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Update Data detail_pemesanan</h1>
+    <form action=""method="post">
+        {% csrf_token %}
+        <table>
+            <tbody>
+                <tr>
+                    <th>pemesanan</th>
+                    <td>
+                        <select name="id_pemesanan"id="">
+                        {% for item in datapemesanan %}
+                            {% if item in datapemesanan == detail_pemesananobj.id_pemesanan.id_pemesanan %} 
+                                <option selected value="{{item.id_pemesanan}}">{{item.id_pemesanan}}</option>
+                            {% else %}
+                                <option value="{{item.id_pemesanan}}">{{item.id_pemesanan}}</option>
+                            {% endif %}
+                        {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Jenis Pengiriman</th>
+                    <td>
+                        <select name="id_jenis_pengiriman"id="">
+                        {% for item in datajenis_pengiriman %}
+                            {% if item in datajenis_pengiriman == pengirimanobj.id_jenis_pengiriman.id_jenis_pengiriman %} 
+                                <option selected value="{{item.id_jenis_pengiriman}}">{{item.id_jenis_pengiriman}}</option>
+                            {% else %}
+                                <option value="{{item.id_jenis_pengiriman}}">{{item.id_jenis_pengiriman}}</option>
+                            {% endif %}
+                        {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit">SUBMIT</button>
+        </form>
+</body>
+</html>

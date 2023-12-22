@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Update Data paket</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>paket</th>
+                <td>
+                    <input type="text" name="jenis_paket" value="{{paketobj.jenis_paket}}">
+                </td>
+            </tr>
+            <tr>
+                <th>harga paket</th>
+                <td>
+                <input type="number" name="harga_paket" value="{{paketobj.harga_paket}}">
+                </td>
+            </tr>
+        </table>
+        <button type="submit">SUBMIT</button>
+    </form>
+</body>
+</html>
