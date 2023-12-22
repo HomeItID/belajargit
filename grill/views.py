@@ -18,6 +18,7 @@ import tempfile
 from django.db.models import Sum
 import numpy as np
 
+print("hellooooo ini imeldaaa")
 
 # Create your views here.
 
