@@ -18,6 +18,18 @@ import tempfile
 from django.db.models import Sum
 import numpy as np
 
+print("imelda")
+print("imelda")
+print("imelda")
+print("imelda")
+print("imelda")
+print("imelda")
+print("imelda")
+print("imelda")
+print("imelda")
+print("imelda")
+print("imelda")
+
 
 # Create your views here.
 
